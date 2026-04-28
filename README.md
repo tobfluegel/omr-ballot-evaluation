@@ -64,7 +64,7 @@ pip install -r requirements.txt
 
 1. Clone the repository:
 
-git clone <your-repo-url>
+git clone https://github.com/tobfluegel/omr-ballot-evaluation.git
 cd omr-ballot-evaluation
 
 2. Install dependencies:
