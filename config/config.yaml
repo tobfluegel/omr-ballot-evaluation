@@ -1,0 +1,75 @@
+project:
+  name: "omr-ballot-evaluation"
+  root_dir: "."
+
+io:
+  input_dir: "example_data/input"
+  output_dir: "output"
+  image_globs:
+    - "*.jpg"
+    - "*.jpeg"
+    - "*.png"
+
+ml:
+  enabled: true
+
+  paths:
+    marker_model: "models/marker_model.pt"
+    checkbox_model: "models/checkbox_model.pt"
+    svm_model: "models/svm_model.joblib"
+
+  params:
+    warp_imgsz: 1280
+    warp_conf: 0.12
+    out_w: 1000
+    out_h: 1400
+
+    roi_imgsz: 1280
+    roi_conf: 0.25
+    roi_iou: 0.35
+
+    min_box: 25
+    max_box: 200
+    topk_per_sheet: 200
+
+    rows: 26
+    cols: 5
+
+    dedup_mode: "center+grid"
+    min_center_dist_px: 18
+    grid_dedup_margin: 0.10
+
+rule_based:
+  enabled: true
+
+  grid:
+    rows: 26
+    cols: 5
+
+    inner_width: 1200
+    inner_height: 1800
+
+    x0: 280
+    y0: 56
+    dx: 200
+    dy: 66
+
+    box_width: 40
+    box_height: 40
+    pad_px: 7
+
+  quad_detection:
+    min_height_frac: 0.50
+    max_height_frac: 0.98
+    iterations: 5
+
+  classification:
+    method: "dark_ratio_otsu"
+    threshold: 0.20
+    ignore_border_ratio: 0.15
+    save_debug_masks: false
+
+  debug:
+    save_steps: true
+    show_score_on_overlay: false
+    overlay_thickness: 2
