@@ -46,28 +46,27 @@ The goal is to evaluate differences in accuracy, robustness, and error behavior.
 omr-ballot-evaluation/
 │
 ├── src/
-│   ├── compare_pipelines.py
-│   ├── run_ml_pipeline.py
-│   ├── run_rule_based_pipeline.py
-│   ├── warp.py
-│   ├── extract_rois.py
-│   ├── overlay.py
-│   ├── classify_rule_based.py
+│ ├── compare_pipelines.py
+│ ├── run_ml_pipeline.py
+│ ├── run_rule_based_pipeline.py
+│ ├── warp.py
+│ ├── extract_rois.py
+│ ├── overlay.py
+│ ├── classify_rule_based.py
 │
 ├── tools/
-│   └── review_labels.py
+│ └── review_labels.py
 │
 ├── config/
-│   └── config.yaml
+│ └── config.yaml
 │
-├── models/              # not included in repository
-├── example_data/        # optional test images
-├── output/              # generated results (ignored)
+├── models/ # not included in repository
+├── example_data/ # optional test images
+├── output/ # generated results (ignored)
 │
 ├── .gitignore
 ├── requirements.txt
 └── README.md
-
 ---
 
 ## Installation
